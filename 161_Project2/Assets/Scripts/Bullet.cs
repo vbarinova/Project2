@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour {
 
 	public float m_Speed = 15f;
 
+
 	private Rigidbody m_Rigidbody;
 
 	private void Awake()

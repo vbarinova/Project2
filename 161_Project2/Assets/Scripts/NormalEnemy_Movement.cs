@@ -15,14 +15,16 @@ public class NormalEnemy_Movement : MonoBehaviour {
 	void Awake () {
 		m_player = GameObject.FindGameObjectWithTag("Player");  // But where the camera is? nurr, just the level it is on
 		m_rigidbody = GetComponent<Rigidbody> ();
-		
-	}
+        transform.position = new Vector3(transform.position.x, Random.Range(-3f, 3f), transform.position.y);
+    }
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		Vector3 delta = m_player.transform.position - transform.position;
+
+        Vector3 delta = m_player.transform.position - transform.position;
 		Vector3 movement = delta.normalized * m_Speed * Time.deltaTime;
 		m_rigidbody.MovePosition (m_rigidbody.position + movement);
+
 		
 	}
 

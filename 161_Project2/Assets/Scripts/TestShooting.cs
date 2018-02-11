@@ -13,9 +13,10 @@ public class TestShooting : MonoBehaviour {
 
 	private void Shoot()
 	{
-		if (Input.GetMouseButtonDown(0)) 
+        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown("space"))
 		{
-			Instantiate(m_BulletPrefab, transform.position, transform.rotation);
+            Instantiate(m_BulletPrefab, transform.position, transform.rotation);
+            
 		}
 	}
 }
