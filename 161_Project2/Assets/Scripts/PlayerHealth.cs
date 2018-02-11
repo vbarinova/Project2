@@ -5,14 +5,16 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour {
 
 	public int m_Health = 20;
-
+    public static bool GameOver = false;
 	private void OnTriggerEnter (Collider other)  // Trigger function, the collider is the bullet
 	{
 		if (other.gameObject.tag == "Enemy") 
 		{
 			Destroy (other.gameObject);
 			if (--m_Health <= 0) {
-				Destroy (this.gameObject);
+                //Destroy (this.gameObject);
+                Debug.Log("Player is dead");
+                GameOver = true;
 			}
 		}
 	}
