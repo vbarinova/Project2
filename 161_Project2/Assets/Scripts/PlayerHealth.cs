@@ -1,11 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour {
 
 	public int m_Health = 20;
     public static bool GameOver = false;
+	public GameObject HealthUI;
+
+	private void Update() {
+		HealthUI.gameObject.GetComponent<Text>().text = ("Health:    " + (int)m_Health);
+	}
+
 	private void OnTriggerEnter (Collider other)  // Trigger function, the collider is the bullet
 	{
 		if (other.gameObject.tag == "Enemy") 

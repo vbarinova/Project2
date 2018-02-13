@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class NormalEnemy_Movement : MonoBehaviour {
 
 	public int m_Health = 3;
-	public float m_Speed = 4.5f;
+	public float m_Speed = 2.5f;
 
 	private GameObject m_player;
 	private Rigidbody m_rigidbody;
