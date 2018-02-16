@@ -14,7 +14,7 @@ public class Bullet : MonoBehaviour {
 	{
 		m_Rigidbody = GetComponent<Rigidbody> ();
 
-		Invoke ("DestorySelf", 4.0f); // Invoke calls a function after an alotted time
+		Invoke ("DestorySelf", 2.0f); // Invoke calls a function after an alotted time
 	}
 
 	private void FixedUpdate()

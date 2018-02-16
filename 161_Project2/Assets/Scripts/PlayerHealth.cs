@@ -11,6 +11,9 @@ public class PlayerHealth : MonoBehaviour {
 
 	private void Update() {
 		HealthUI.gameObject.GetComponent<Text>().text = ("Health:    " + (int)m_Health);
+
+        if (GameOver)
+            LevelManager.GameOver();
 	}
 
 	private void OnTriggerEnter (Collider other)  // Trigger function, the collider is the bullet
