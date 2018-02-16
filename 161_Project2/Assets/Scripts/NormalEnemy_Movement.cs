@@ -7,6 +7,12 @@ public class NormalEnemy_Movement : MonoBehaviour {
 
 	public int m_Health = 3;
 	public float m_Speed = 2.5f;
+	public AudioClip deathSound;
+	public AudioClip suicideSound;
+
+	private AudioSource deathSource;
+	private AudioSource suicideSource;
+	private AudioSource[] aSources;
 
 	private GameObject m_player;
 	private Rigidbody m_rigidbody;
@@ -16,6 +22,11 @@ public class NormalEnemy_Movement : MonoBehaviour {
 		m_player = GameObject.FindGameObjectWithTag("Player");  // But where the camera is? nurr, just the level it is on
 		m_rigidbody = GetComponent<Rigidbody> ();
         transform.position = new Vector3(transform.position.x, Random.Range(-3f, 3f), transform.position.y);
+
+		// Get sounds
+		aSources = GetComponents<AudioSource>();
+		deathSource = aSources[0];
+		suicideSource = aSources[1];
     }
 	
 	// Update is called once per frame
@@ -34,6 +45,7 @@ public class NormalEnemy_Movement : MonoBehaviour {
 		if (other.gameObject.tag == "Player") {
 			Debug.Log ("Hit Player, health should go down");
 			// Kamakazi style
+			//suicideSource.PlayOneShot (suicideSound, .5f);
 			Destroy (this.gameObject);
 			//SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex);  // only one index, so defautl
 		} 
@@ -41,6 +53,7 @@ public class NormalEnemy_Movement : MonoBehaviour {
 		{
 			Destroy (other.gameObject);
 			if (--m_Health <= 0) {
+				//deathSource.PlayOneShot (deathSound, .5f);
 				Destroy (this.gameObject);
 			}
 		}
