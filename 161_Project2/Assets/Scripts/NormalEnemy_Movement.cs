@@ -10,9 +10,9 @@ public class NormalEnemy_Movement : MonoBehaviour {
 	public AudioClip deathSound;
 	public AudioClip suicideSound;
 
-	private AudioSource deathSource;
-	private AudioSource suicideSource;
-	private AudioSource[] aSources;
+	//private AudioSource deathSource;
+	//private AudioSource suicideSource;
+	//private AudioSource[] aSources;
 
 	private GameObject m_player;
 	private Rigidbody m_rigidbody;
@@ -24,9 +24,9 @@ public class NormalEnemy_Movement : MonoBehaviour {
         transform.position = new Vector3(transform.position.x, Random.Range(-3f, 3f), transform.position.y);
 
 		// Get sounds
-		aSources = GetComponents<AudioSource>();
-		deathSource = aSources[0];
-		suicideSource = aSources[1];
+		//aSources = GetComponents<AudioSource>();
+		//deathSource = aSources[0];
+		//suicideSource = aSources[1];
     }
 	
 	// Update is called once per frame
@@ -46,6 +46,7 @@ public class NormalEnemy_Movement : MonoBehaviour {
 			Debug.Log ("Hit Player, health should go down");
 			// Kamakazi style
 			//suicideSource.PlayOneShot (suicideSound, .5f);
+			EnemySounds.enemySounds.playSuicide();
 			Destroy (this.gameObject);
 			//SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex);  // only one index, so defautl
 		} 
@@ -54,6 +55,7 @@ public class NormalEnemy_Movement : MonoBehaviour {
 			Destroy (other.gameObject);
 			if (--m_Health <= 0) {
 				//deathSource.PlayOneShot (deathSound, .5f);
+				EnemySounds.enemySounds.playDeath();
 				Destroy (this.gameObject);
 			}
 		}
