@@ -10,7 +10,7 @@ public class PlayerHealth : MonoBehaviour {
 	public GameObject HealthUI;
 
 	private void Update() {
-		HealthUI.gameObject.GetComponent<Text>().text = ("Health:    " + (int)m_Health);
+		HealthUI.gameObject.GetComponent<Text>().text = ("Health: " + (int)m_Health);
 
         if (GameOver)
             LevelManager.GameOver();

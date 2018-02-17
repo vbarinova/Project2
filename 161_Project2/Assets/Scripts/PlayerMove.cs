@@ -5,7 +5,6 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMove : MonoBehaviour {
 
-    public GameObject Main_Camera;
 
 	private int playerVertSpeed = 8;
 	private int playerHorSpeed = 35;
