@@ -11,3 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EnemyTesting2D.unity
     guid: 226af7afd7aa55541807feeb7b25250b
+  - enabled: 1
+    path: Assets/Scenes/Intro.unity
+    guid: 38829a7c06053c5478bc81c41720f04b

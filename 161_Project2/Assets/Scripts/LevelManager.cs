@@ -24,6 +24,7 @@ public class LevelManager : MonoBehaviour {
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
     public static void GameOver()
     {
         if (PlayerHealth.GameOver)
