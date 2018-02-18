@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class SpawnNormalEnemy : MonoBehaviour {
 
-	public GameObject m_Prefab;
-	public float increaseDiffTimer = 20.0f;
-	private float m_SpawnDelay = 5.5f;
-	private float m_range = 20;
+	public GameObject m_NormalEnemy;
 
+	public float increaseDiffTimer = 20.0f;
+
+	private float m_SpawnDelay = 5.5f;
 	private float m_spawnTimer;
+
+	private float m_range = 20;
 
 	private void Awake()
 	{
@@ -44,7 +46,7 @@ public class SpawnNormalEnemy : MonoBehaviour {
 
 			Vector3 Vec = new Vector3 (lineX, m_range, lineY);
 
-			Instantiate (m_Prefab, Vec, Quaternion.identity);
+			Instantiate (m_NormalEnemy, Vec, Quaternion.identity);
 
 			m_spawnTimer = m_SpawnDelay;
 		}
@@ -56,9 +58,10 @@ public class SpawnNormalEnemy : MonoBehaviour {
 	}
 
 	private void increaseDifficulty() {
-		if (m_SpawnDelay > 0.5f ) m_SpawnDelay -= 0.5f;
-		if (m_range > 8) m_range -= 2;
+		//if (m_spawnTimer > 15.f ) m_SpawnDelay -= 0.5f;
+		if (m_range > 10) m_range -= 2;
 		Debug.Log ("increaseing difficulty" + m_SpawnDelay + " " + m_range);
 
 	}
+		
 }
