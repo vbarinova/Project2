@@ -7,11 +7,9 @@ public class PlayerHealth : MonoBehaviour {
 
 	public int m_Health = 20;
     public static bool GameOver = false;
-	public GameObject HealthUI;
+	public Slider HealthSlider;
 
 	private void Update() {
-		HealthUI.gameObject.GetComponent<Text>().text = ("Health: " + (int)m_Health);
-
         if (GameOver)
             LevelManager.GameOver();
 	}
@@ -26,6 +24,7 @@ public class PlayerHealth : MonoBehaviour {
                 Debug.Log("Player is dead");
                 GameOver = true;
 			}
+            HealthSlider.value = 1f * (m_Health/20f);
 		}
 	}
 }

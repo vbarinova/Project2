@@ -6,7 +6,7 @@ using UnityEngine;
 public class Reload : MonoBehaviour {
 
     
-    public Slider bulletCounter;
+    public GameObject bulletCounter;
     public AudioClip reloadSound;
 
     private AudioSource source;
@@ -21,7 +21,7 @@ public class Reload : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        bulletCounter.value = 1 - TestShooting.ShootCount*0.2f;
+
         if (TestShooting.ShootCount >= 5 && !isEmpty)
         {
             isEmpty = true;
@@ -36,9 +36,9 @@ public class Reload : MonoBehaviour {
 
     void Reloading()
     {
-
-        bulletCounter.value = 1f;
+        
         TestShooting.ShootCount = 0;
+        bulletCounter.gameObject.GetComponent<Text>().text = "Ammo: " + (int)(5 - TestShooting.ShootCount);
         isEmpty = false;
         reloading = false;
         source.PlayOneShot(reloadSound, .5f);

@@ -13,14 +13,17 @@ public class LevelManager : MonoBehaviour {
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.R))
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            Restart();
     }
     
     public void Quit()
     {
         Application.Quit();
     }
-
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
     public static void GameOver()
     {
         if (PlayerHealth.GameOver)
