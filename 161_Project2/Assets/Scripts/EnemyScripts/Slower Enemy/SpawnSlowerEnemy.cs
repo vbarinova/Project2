@@ -5,14 +5,14 @@ using UnityEngine;
 public class SpawnSlowerEnemy : MonoBehaviour {
 
 	public GameObject m_SlowerEnemy;
-	public float increaseDiffTimer = 20.0f;
+	public float increaseDiffTimer = 30.0f;
 
 	private GameObject thing;
 	private WaveManager waves;
 
 	private int currentwave;
-	private float m_spawnTimer;
-	private float m_range = 15;
+	private float m_spawnTimer = 0;
+	private float m_range = 20;
 
 	private void Awake()
 	{
@@ -24,27 +24,13 @@ public class SpawnSlowerEnemy : MonoBehaviour {
 
 	private void Update()
 	{
-		if (currentwave > 2) {
+		if (currentwave > 1) {
 
 			m_spawnTimer -= Time.deltaTime;
+			increaseDiffTimer -= Time.deltaTime;
 			if(m_spawnTimer <= 0)
 			{
-				/*
-				// get random direction (360) in radians
-				float angle = Random.Range(0.0f, Mathf.PI*2);
-
-				// create a vecotr with length 1.0
-				Vector3 Vec = new Vector3(Mathf.Sin(angle), 0, Mathf.Cos(angle));
-
-				// Scale it to the desired length
-				Vec *= m_range;
-
-				// Spawn our new clone!
-				Instantiate(m_Prefab, Vec, Quaternion.identity);
-
-				m_spawnTimer = m_SpawnDelay;
-				*/
-
+				
 				float lineX = Random.Range (-15.0f, 15.0f);
 				float lineY = Random.Range (-7.0f, 7.0f);
 
@@ -52,13 +38,24 @@ public class SpawnSlowerEnemy : MonoBehaviour {
 
 				Instantiate (m_SlowerEnemy, Vec, Quaternion.identity);
 
-				m_spawnTimer = Random.Range (2.0f, 10.0f);
+				m_spawnTimer = Random.Range (10.0f, 20.0f);
 			}
 
 		}
 		//currentwave = WaveManager.wavemanager.currentWave ();
 		waves = thing.GetComponent<WaveManager> ();
 		currentwave = waves.waveNumber;
+
+		if (increaseDiffTimer <= 0) {
+			increaseDifficulty ();
+			increaseDiffTimer = 30.0f;
+		}
+
+	}
+
+	private void increaseDifficulty() {
+		if (m_range > 15) m_range -= 1;
+		Debug.Log ("increaseing Slow difficulty" + m_range);
 
 	}
 

@@ -58,7 +58,8 @@ public class SpawnNormalEnemy : MonoBehaviour {
 	}
 
 	private void increaseDifficulty() {
-		//if (m_spawnTimer > 15.f ) m_SpawnDelay -= 0.5f;
+		// Doesn't start lowering spwan rate untill distance is lowered
+		if (m_range <= 10 && m_SpawnDelay > 4.0f ) m_SpawnDelay -= 0.1f;
 		if (m_range > 10) m_range -= 2;
 		Debug.Log ("increaseing difficulty" + m_SpawnDelay + " " + m_range);
 

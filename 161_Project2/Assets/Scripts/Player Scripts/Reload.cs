@@ -11,6 +11,7 @@ public class Reload : MonoBehaviour {
 
     private AudioSource source;
     private bool isEmpty, reloading;
+	private int ammoCount = 6;
 
     // Use this for initialization
     void Awake () {
@@ -22,14 +23,14 @@ public class Reload : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (TestShooting.ShootCount >= 5 && !isEmpty)
+		if (TestShooting.ShootCount >= ammoCount && !isEmpty)
         {
             isEmpty = true;
         }
         if (isEmpty && !reloading)
         {
             reloading = true;
-            Invoke("Reloading", 2f);
+            Invoke("Reloading", 1f);
         }
 		
 	}
@@ -38,7 +39,7 @@ public class Reload : MonoBehaviour {
     {
         
         TestShooting.ShootCount = 0;
-        bulletCounter.gameObject.GetComponent<Text>().text = "Ammo: " + (int)(5 - TestShooting.ShootCount);
+		bulletCounter.gameObject.GetComponent<Text>().text = "Ammo: " + (int)(ammoCount - TestShooting.ShootCount);
         isEmpty = false;
         reloading = false;
         source.PlayOneShot(reloadSound, .5f);

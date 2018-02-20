@@ -5,14 +5,14 @@ using UnityEngine;
 public class SpawnFasterEnemy : MonoBehaviour {
 
 	public GameObject m_FasterEnemy;
-	public float increaseDiffTimer = 20.0f;
+	public float increaseDiffTimer = 30.0f;
 
 	//private WaveManager waves;
 	private GameObject thing;
 	private WaveManager waves;
 
 	private int currentwave;
-	private float m_spawnTimer;
+	private float m_spawnTimer = 0;
 	private float m_range = 30;
 
 	private void Awake()
@@ -52,12 +52,23 @@ public class SpawnFasterEnemy : MonoBehaviour {
 
 				Instantiate (m_FasterEnemy, Vec, Quaternion.identity);
 
-				m_spawnTimer = Random.Range (5.0f, 15.0f);
+				m_spawnTimer = Random.Range (8.0f, 30.0f);
 			}
 				
 		}
 		waves = thing.GetComponent<WaveManager> ();
 		currentwave = waves.waveNumber;
+
+		if (increaseDiffTimer <= 0) {
+			increaseDifficulty ();
+			increaseDiffTimer = 30.0f;
+		}
+
+	}
+
+	private void increaseDifficulty() {
+		if (m_range > 20) m_range -= 1;
+		Debug.Log ("increaseing Fast difficulty" + m_range);
 
 	}
 
