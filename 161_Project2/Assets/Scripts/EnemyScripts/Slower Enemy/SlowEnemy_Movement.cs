@@ -5,7 +5,7 @@ using UnityEngine;
 public class SlowEnemy_Movement : MonoBehaviour {
 
 	private int m_Health = 5;
-	private float m_Speed = 1.0f;
+	private float m_Speed = 0.8f;
 
 	private GameObject m_player;
 	private Rigidbody m_rigidbody;
