@@ -13,6 +13,7 @@ public class PauseMenu : MonoBehaviour {
     public static bool isPaused;
 	// Use this for initialization
 	void Start () {
+        m_AudioControl.GetComponent<AudioHighPassFilter>().enabled = false;
         isPaused = false;
 	}
 	
