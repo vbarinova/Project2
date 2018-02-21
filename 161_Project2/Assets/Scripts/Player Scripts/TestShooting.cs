@@ -31,7 +31,7 @@ public class TestShooting : MonoBehaviour {
 		{
             ++ShootCount;
 			bulletCounter.gameObject.GetComponent<Text>().text = "Ammo: " + (int)(ammoCount - ShootCount);
-            source.PlayOneShot (shootSound, .5f);
+            source.PlayOneShot (shootSound, .3f);
             Instantiate(m_BulletPrefab, transform.position, transform.rotation);
 
             

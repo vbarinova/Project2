@@ -4,17 +4,32 @@ using UnityEngine;
 
 public class FastEnemy_Movement : MonoBehaviour {
 
+	public Renderer rend;
+	public Color normalColor = new Color (1f,0.615f,0.035f);
+	public Color hitColor = new Color (1f, 0.776f, 0.439f);
+
 	private int m_Health = 1;
 	private float m_Speed = 3.5f;
 
 	private GameObject m_player;
 	private Rigidbody m_rigidbody;
 
+	private NumCurrentEnemies enemyCount;
+	private GameObject thing2;
+
 	// Use this for initialization
 	void Awake () {
 		m_player = GameObject.FindGameObjectWithTag("Player");  // But where the camera is? nurr, just the level it is on
 		m_rigidbody = GetComponent<Rigidbody> ();
 		transform.position = new Vector3(transform.position.x, Random.Range(-3f, 3f), transform.position.y);
+	
+		// So can access public enemy counter
+		thing2 = GameObject.Find ("Base");
+		enemyCount = thing2.GetComponent<NumCurrentEnemies> ();
+
+		// find renderer and set the og color
+		rend = GetComponent<Renderer>();
+		rend.material.color = normalColor;
 	}
 
 	// Update is called once per frame
@@ -33,6 +48,7 @@ public class FastEnemy_Movement : MonoBehaviour {
 		if (other.gameObject.tag == "Player") {
 			Debug.Log ("Hit Player, health should go down");
 			// Kamakazi style
+			enemyCount.decrementEnemies ();
 			EnemySounds.enemySounds.playSuicide();
 			Destroy (this.gameObject);
 			//SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex);  // only one index, so defautl
@@ -40,12 +56,22 @@ public class FastEnemy_Movement : MonoBehaviour {
 		else if (other.gameObject.tag == "Bullet") 
 		{
 			Destroy (other.gameObject);
+			StartCoroutine(getHit());
 			if (--m_Health <= 0) {
 				//deathSource.PlayOneShot (deathSound, .5f);
+				enemyCount.decrementEnemies ();
 				EnemySounds.enemySounds.playDeath();
 				Destroy (this.gameObject);
 			}
 		}
+	}
+
+	IEnumerator getHit() {
+		Debug.Log ("Oh gosh hit");
+		rend.material.color = hitColor;
+		yield return new WaitForSeconds (0.1f);
+		rend.material.color = normalColor;
+		Debug.Log ("lol done being hit");
 	}
 
 }

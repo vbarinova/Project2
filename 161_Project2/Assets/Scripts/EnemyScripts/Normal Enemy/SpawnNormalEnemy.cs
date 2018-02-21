@@ -13,16 +13,22 @@ public class SpawnNormalEnemy : MonoBehaviour {
 
 	private float m_range = 20;
 
+	private NumCurrentEnemies enemyCount;
+	private GameObject thing2;
+
 	private void Awake()
 	{
 		m_spawnTimer = m_SpawnDelay;
+
+		thing2 = GameObject.Find ("Base");
+		enemyCount = thing2.GetComponent<NumCurrentEnemies> ();
 	}
 
 	private void Update()
 	{
 		m_spawnTimer -= Time.deltaTime;
 		increaseDiffTimer -= Time.deltaTime;
-		if(m_spawnTimer <= 0)
+		if(m_spawnTimer <= 0 && enemyCount.keepSpawning())
 		{
 			/*
 			// get random direction (360) in radians
@@ -49,7 +55,11 @@ public class SpawnNormalEnemy : MonoBehaviour {
 			Instantiate (m_NormalEnemy, Vec, Quaternion.identity);
 
 			m_spawnTimer = m_SpawnDelay;
+
+			enemyCount.hasSpawned ();
 		}
+
+		enemyCount = thing2.GetComponent<NumCurrentEnemies> ();
 
 		if (increaseDiffTimer <= 0) {
 			increaseDifficulty ();
@@ -59,8 +69,9 @@ public class SpawnNormalEnemy : MonoBehaviour {
 
 	private void increaseDifficulty() {
 		// Doesn't start lowering spwan rate untill distance is lowered
-		if (m_range <= 10 && m_SpawnDelay > 4.0f ) m_SpawnDelay -= 0.1f;
-		if (m_range > 10) m_range -= 2;
+		if (m_SpawnDelay > 4.0f ) m_SpawnDelay -= 0.1f;
+		//if (m_range <= 10 && m_SpawnDelay > 4.0f ) m_SpawnDelay -= 0.1f;
+		//if (m_range > 10) m_range -= 2;
 		Debug.Log ("increaseing difficulty" + m_SpawnDelay + " " + m_range);
 
 	}

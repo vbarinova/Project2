@@ -15,11 +15,17 @@ public class SpawnFasterEnemy : MonoBehaviour {
 	private float m_spawnTimer = 0;
 	private float m_range = 30;
 
+	private NumCurrentEnemies enemyCount;
+	private GameObject thing2;
+
 	private void Awake()
 	{
 		thing = GameObject.Find ("Base");
 		waves = thing.GetComponent<WaveManager> ();
 		currentwave = waves.waveNumber;
+
+		thing2 = GameObject.Find ("Base");
+		enemyCount = thing2.GetComponent<NumCurrentEnemies> ();
 	}
 
 	private void Update()
@@ -27,23 +33,8 @@ public class SpawnFasterEnemy : MonoBehaviour {
 		if (currentwave > 3) {
 			
 			m_spawnTimer -= Time.deltaTime;
-			if(m_spawnTimer <= 0)
+			if(m_spawnTimer <= 0 && enemyCount.keepSpawning())
 			{
-				/*
-				// get random direction (360) in radians
-				float angle = Random.Range(0.0f, Mathf.PI*2);
-
-				// create a vecotr with length 1.0
-				Vector3 Vec = new Vector3(Mathf.Sin(angle), 0, Mathf.Cos(angle));
-
-				// Scale it to the desired length
-				Vec *= m_range;
-
-				// Spawn our new clone!
-				Instantiate(m_Prefab, Vec, Quaternion.identity);
-
-				m_spawnTimer = m_SpawnDelay;
-				*/
 
 				float lineX = Random.Range (-15.0f, 15.0f);
 				float lineY = Random.Range (-7.0f, 7.0f);
@@ -53,7 +44,11 @@ public class SpawnFasterEnemy : MonoBehaviour {
 				Instantiate (m_FasterEnemy, Vec, Quaternion.identity);
 
 				m_spawnTimer = Random.Range (8.0f, 30.0f);
+
+				enemyCount.hasSpawned ();
 			}
+
+			enemyCount = thing2.GetComponent<NumCurrentEnemies> ();
 				
 		}
 		waves = thing.GetComponent<WaveManager> ();

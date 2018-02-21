@@ -42,7 +42,7 @@ public class Reload : MonoBehaviour {
 		bulletCounter.gameObject.GetComponent<Text>().text = "Ammo: " + (int)(ammoCount - TestShooting.ShootCount);
         isEmpty = false;
         reloading = false;
-        source.PlayOneShot(reloadSound, .5f);
+        source.PlayOneShot(reloadSound, .7f);
 
     }
 }

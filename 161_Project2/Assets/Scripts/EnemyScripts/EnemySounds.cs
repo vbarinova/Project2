@@ -24,11 +24,11 @@ public class EnemySounds : MonoBehaviour {
 	}
 
 	public void playDeath() {
-		deathSource.PlayOneShot (deathSound, .3f);
+		deathSource.PlayOneShot (deathSound, .4f);
 	}
 
 	public void playSuicide() {
-		suicideSource.PlayOneShot (suicideSound, .3f);
+		suicideSource.PlayOneShot (suicideSound, .4f);
 	}
 	
 	// Update is called once per frame

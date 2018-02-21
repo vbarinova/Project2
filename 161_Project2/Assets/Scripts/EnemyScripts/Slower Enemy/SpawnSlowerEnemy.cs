@@ -14,12 +14,18 @@ public class SpawnSlowerEnemy : MonoBehaviour {
 	private float m_spawnTimer = 0;
 	private float m_range = 20;
 
+	private NumCurrentEnemies enemyCount;
+	private GameObject thing2;
+
 	private void Awake()
 	{
 		//currentwave = WaveManager.wavemanager.currentWave ();
 		thing = GameObject.Find ("Base");
 		waves = thing.GetComponent<WaveManager> ();
 		currentwave = waves.waveNumber;
+
+		thing2 = GameObject.Find ("Base");
+		enemyCount = thing2.GetComponent<NumCurrentEnemies> ();
 	}
 
 	private void Update()
@@ -28,7 +34,7 @@ public class SpawnSlowerEnemy : MonoBehaviour {
 
 			m_spawnTimer -= Time.deltaTime;
 			increaseDiffTimer -= Time.deltaTime;
-			if(m_spawnTimer <= 0)
+			if(m_spawnTimer <= 0 && enemyCount.keepSpawning())
 			{
 				
 				float lineX = Random.Range (-15.0f, 15.0f);
@@ -39,7 +45,10 @@ public class SpawnSlowerEnemy : MonoBehaviour {
 				Instantiate (m_SlowerEnemy, Vec, Quaternion.identity);
 
 				m_spawnTimer = Random.Range (10.0f, 20.0f);
+
+				enemyCount.hasSpawned ();
 			}
+			enemyCount = thing2.GetComponent<NumCurrentEnemies> ();
 
 		}
 		//currentwave = WaveManager.wavemanager.currentWave ();
