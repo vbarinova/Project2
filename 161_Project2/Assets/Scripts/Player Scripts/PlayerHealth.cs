@@ -23,6 +23,7 @@ public class PlayerHealth : MonoBehaviour {
                 //Destroy (this.gameObject);
                 Debug.Log("Player is dead");
                 GameOver = true;
+                LoadingScreen.GameStart = false;
 			}
             HealthSlider.value = 1f * (m_Health/20f);
 		}

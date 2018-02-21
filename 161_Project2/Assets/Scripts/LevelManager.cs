@@ -7,13 +7,14 @@ public class LevelManager : MonoBehaviour {
 
 	public void MoveScene(int level)
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene(level);
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
-            Restart();
+        //if (Input.GetKeyDown(KeyCode.R))
+            //Restart();
     }
     
     public void Quit()
@@ -22,6 +23,7 @@ public class LevelManager : MonoBehaviour {
     }
     public void Restart()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
@@ -29,6 +31,7 @@ public class LevelManager : MonoBehaviour {
     {
         if (PlayerHealth.GameOver)
         {
+            Time.timeScale = 1f;
             PlayerHealth.GameOver = false;
             SceneManager.LoadScene(0);
         }

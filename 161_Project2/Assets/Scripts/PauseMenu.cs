@@ -8,6 +8,7 @@ public class PauseMenu : MonoBehaviour {
 
 
     public GameObject m_PauseMenu;
+    public AudioSource m_AudioControl;
 
     public static bool isPaused;
 	// Use this for initialization
@@ -29,6 +30,7 @@ public class PauseMenu : MonoBehaviour {
     void Resume()
     {
         m_PauseMenu.SetActive(false);
+        m_AudioControl.GetComponent<AudioHighPassFilter>().enabled = false;
         Time.timeScale = 1f;
         isPaused = false;
     }
@@ -36,6 +38,7 @@ public class PauseMenu : MonoBehaviour {
     void Pause()
     {
         m_PauseMenu.SetActive(true);
+        m_AudioControl.GetComponent<AudioHighPassFilter>().enabled = true;
         Time.timeScale = 0f;
         isPaused = true;
     }
