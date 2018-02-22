@@ -8,7 +8,7 @@ public class WaveManager : MonoBehaviour {
 	public static WaveManager wavemanager;
 	public GameObject WaveDisplay;
 	public GameObject SurviveWaves;
-	public int waveNumber = 0;
+	public static int waveNumber = 0;
 
 	private float waveLength = 30.0f;
 	private float waveTimer;
@@ -33,7 +33,8 @@ public class WaveManager : MonoBehaviour {
 	private void Update()
 	{
 		waveTimer -= Time.deltaTime;
-		//if (numEnemies <= 0) enemyCount.resetCounter();
+        //if (numEnemies <= 0) enemyCount.resetCounter();
+
 
 		if(waveTimer <= 0 && enemyCount.nextWave())
 		{

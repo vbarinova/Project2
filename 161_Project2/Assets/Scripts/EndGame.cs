@@ -1,0 +1,68 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
+
+public class EndGame : MonoBehaviour
+{
+
+    public GameObject gameOverUI, gameWinUI;
+    public Text scoretxt;
+
+
+    private int lvl;
+
+    private void Awake()
+    {
+        gameOverUI.SetActive(false);
+        gameWinUI.SetActive(false);
+    }
+
+    void Update()
+    {
+        CheckGame();
+    }
+
+    void CheckGame()
+    {
+        if (PlayerHealth.GameOver)
+        {
+            Time.timeScale = 0f;
+            GameOverScreen();
+            Debug.Log("Game Over");
+            if (Input.anyKeyDown)
+            {
+                Time.timeScale = 1f;
+                GoBackToStart();
+            }
+        }
+        else if (WaveManager.waveNumber >= 11)
+        {
+            Time.timeScale = 0f;
+            gameOverUI.SetActive(false);
+            Debug.Log("Game Win");
+            if (Input.anyKeyDown)
+            {
+                Time.timeScale = 1f;
+                GoBackToStart();
+            }
+        }
+    }
+
+
+
+    void GameOverScreen()
+    {
+        scoretxt.text = "On Wave " +  WaveManager.waveNumber.ToString() + ", the final frontier \nhas been destroyed.";
+        gameOverUI.SetActive(true);
+    }
+
+    void GoBackToStart()
+    {
+        PlayerHealth.GameOver = false;
+        LevelManager.GameOver();
+    }
+
+}

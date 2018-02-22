@@ -21,8 +21,8 @@ public class SpawnSlowerEnemy : MonoBehaviour {
 	{
 		//currentwave = WaveManager.wavemanager.currentWave ();
 		thing = GameObject.Find ("Base");
-		waves = thing.GetComponent<WaveManager> ();
-		currentwave = waves.waveNumber;
+		//waves = thing.GetComponent<WaveManager> ();
+		currentwave = WaveManager.waveNumber;
 
 		thing2 = GameObject.Find ("Base");
 		enemyCount = thing2.GetComponent<NumCurrentEnemies> ();
@@ -52,8 +52,8 @@ public class SpawnSlowerEnemy : MonoBehaviour {
 
 		}
 		//currentwave = WaveManager.wavemanager.currentWave ();
-		waves = thing.GetComponent<WaveManager> ();
-		currentwave = waves.waveNumber;
+		//waves = thing.GetComponent<WaveManager> ();
+		currentwave = WaveManager.waveNumber;
 
 		if (increaseDiffTimer <= 0) {
 			increaseDifficulty ();

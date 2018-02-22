@@ -10,8 +10,6 @@ public class PlayerHealth : MonoBehaviour {
 	public Slider HealthSlider;
 
 	private void Update() {
-        if (GameOver)
-            LevelManager.GameOver();
 	}
 
 	private void OnTriggerEnter (Collider other)  // Trigger function, the collider is the bullet

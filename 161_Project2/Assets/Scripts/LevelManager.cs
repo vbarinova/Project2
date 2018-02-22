@@ -31,12 +31,7 @@ public class LevelManager : MonoBehaviour {
 
     public static void GameOver()
     {
-        if (PlayerHealth.GameOver)
-        {
-            Time.timeScale = 1f;
             PlayerHealth.GameOver = false;
             SceneManager.LoadScene(0);
-        }
-            
     }
 }

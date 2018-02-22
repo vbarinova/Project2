@@ -9,7 +9,7 @@ public class SpawnFasterEnemy : MonoBehaviour {
 
 	//private WaveManager waves;
 	private GameObject thing;
-	private WaveManager waves;
+
 
 	private int currentwave;
 	private float m_spawnTimer = 0;
@@ -21,8 +21,8 @@ public class SpawnFasterEnemy : MonoBehaviour {
 	private void Awake()
 	{
 		thing = GameObject.Find ("Base");
-		waves = thing.GetComponent<WaveManager> ();
-		currentwave = waves.waveNumber;
+		//waves = thing.GetComponent<WaveManager> ();
+		currentwave = WaveManager.waveNumber;
 
 		thing2 = GameObject.Find ("Base");
 		enemyCount = thing2.GetComponent<NumCurrentEnemies> ();
@@ -51,8 +51,8 @@ public class SpawnFasterEnemy : MonoBehaviour {
 			enemyCount = thing2.GetComponent<NumCurrentEnemies> ();
 				
 		}
-		waves = thing.GetComponent<WaveManager> ();
-		currentwave = waves.waveNumber;
+		//waves = thing.GetComponent<WaveManager> ();
+		currentwave = WaveManager.waveNumber;
 
 		if (increaseDiffTimer <= 0) {
 			increaseDifficulty ();
