@@ -38,10 +38,10 @@ public class EndGame : MonoBehaviour
                 GoBackToStart();
             }
         }
-        else if (WaveManager.waveNumber >= 11)
+        else if (WaveManager.waveNumber >= 12)
         {
             Time.timeScale = 0f;
-            gameOverUI.SetActive(false);
+            gameWinUI.SetActive(true);
             Debug.Log("Game Win");
             if (Input.anyKeyDown)
             {
