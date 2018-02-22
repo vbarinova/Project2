@@ -18,8 +18,11 @@ public class WaveManager : MonoBehaviour {
 	private GameObject thing;
 
 
-	private void Awake()
+	private void Start()
 	{
+		// in case of reset
+		waveNumber = 0;
+
 		waveNumber = 0;
 		waveTimer = waveLength;
 		InitialWaveDisplay ();

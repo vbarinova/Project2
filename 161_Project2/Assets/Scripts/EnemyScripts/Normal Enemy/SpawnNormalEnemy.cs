@@ -18,6 +18,10 @@ public class SpawnNormalEnemy : MonoBehaviour {
 
 	private void Awake()
 	{
+		// in case of restart
+		m_range = 20;
+		m_SpawnDelay = 5.5f;
+
 		m_spawnTimer = m_SpawnDelay;
 
 		thing2 = GameObject.Find ("Base");

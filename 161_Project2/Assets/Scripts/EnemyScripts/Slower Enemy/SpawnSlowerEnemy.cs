@@ -19,6 +19,9 @@ public class SpawnSlowerEnemy : MonoBehaviour {
 
 	private void Awake()
 	{
+		// in case of restart
+		m_range = 20;
+
 		//currentwave = WaveManager.wavemanager.currentWave ();
 		thing = GameObject.Find ("Base");
 		//waves = thing.GetComponent<WaveManager> ();
@@ -30,7 +33,7 @@ public class SpawnSlowerEnemy : MonoBehaviour {
 
 	private void Update()
 	{
-		if (currentwave > 1) {
+		if (WaveManager.waveNumber > 1 && !PlayerHealth.GameOver) {
 
 			m_spawnTimer -= Time.deltaTime;
 			increaseDiffTimer -= Time.deltaTime;
@@ -53,7 +56,7 @@ public class SpawnSlowerEnemy : MonoBehaviour {
 		}
 		//currentwave = WaveManager.wavemanager.currentWave ();
 		//waves = thing.GetComponent<WaveManager> ();
-		currentwave = WaveManager.waveNumber;
+		//currentwave = WaveManager.waveNumber;
 
 		if (increaseDiffTimer <= 0) {
 			increaseDifficulty ();

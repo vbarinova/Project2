@@ -489,8 +489,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c558b42f790815488599b50637ba862, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  originalSize: 0.02579355
   maxSize: 0.028
-  growFactor: 0.1
+  growFactor: 0.08
   waitTime: 0.1
 --- !u!1 &1074773351
 GameObject:

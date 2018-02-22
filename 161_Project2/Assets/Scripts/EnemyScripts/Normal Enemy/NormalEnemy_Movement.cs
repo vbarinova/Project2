@@ -22,6 +22,9 @@ public class NormalEnemy_Movement : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
+		// in case of restart
+		m_Speed = 2.5f;
+
 		m_player = GameObject.FindGameObjectWithTag("Player");  // But where the camera is? nurr, just the level it is on
 		m_rigidbody = GetComponent<Rigidbody> ();
         transform.position = new Vector3(transform.position.x, Random.Range(-3f, 3f), transform.position.y);

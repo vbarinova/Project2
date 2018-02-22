@@ -15,6 +15,11 @@ public class NumCurrentEnemies : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		// in case of restart
+		numEnemiesSpawned = 5;
+		numEnemiesDefeated = 5;
+		plusEnemies = 0;
+
 		enemyDisplay.gameObject.GetComponent<Text>().text = "[ " + numEnemiesDefeated + " ]";
 		
 	}

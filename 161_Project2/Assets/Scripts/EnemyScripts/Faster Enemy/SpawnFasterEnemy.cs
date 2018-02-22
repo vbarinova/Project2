@@ -20,6 +20,9 @@ public class SpawnFasterEnemy : MonoBehaviour {
 
 	private void Awake()
 	{
+		// in case of restart
+		m_range = 30;
+
 		thing = GameObject.Find ("Base");
 		//waves = thing.GetComponent<WaveManager> ();
 		currentwave = WaveManager.waveNumber;
@@ -30,7 +33,7 @@ public class SpawnFasterEnemy : MonoBehaviour {
 
 	private void Update()
 	{
-		if (currentwave > 3) {
+		if (currentwave > 3 && !PlayerHealth.GameOver) {
 			
 			m_spawnTimer -= Time.deltaTime;
 			if(m_spawnTimer <= 0 && enemyCount.keepSpawning())

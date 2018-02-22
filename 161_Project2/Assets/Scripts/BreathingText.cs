@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class BreathingText : MonoBehaviour {
 
+	public float originalSize;
 	public float maxSize;
 	public float growFactor;
 	public float waitTime;
 
-	private void Start() {
+	private void Awake() {
 		StartCoroutine (Scale ());
 	}
 
@@ -18,7 +19,7 @@ public class BreathingText : MonoBehaviour {
 			// Scale  to max value
 			while (maxSize > transform.localScale.x) {
 				timer += Time.deltaTime;
-				transform.localScale += new Vector3 (0.02579f, 0.02579f, 0) * Time.deltaTime * growFactor;
+				transform.localScale += new Vector3 (originalSize, originalSize, 0) * Time.deltaTime * growFactor;
 				yield return null;
 			}
 			// reset timer
@@ -26,9 +27,9 @@ public class BreathingText : MonoBehaviour {
 			yield return new WaitForSeconds (waitTime);
 
 			timer = 0;
-			while (0.02579 < transform.localScale.x) {
+			while (originalSize < transform.localScale.x) {
 				timer += Time.deltaTime;
-				transform.localScale -= new Vector3 (0.02579f, 0.02579f, 0) * Time.deltaTime * growFactor;
+				transform.localScale -= new Vector3 (originalSize, originalSize, 0) * Time.deltaTime * growFactor;
 				yield return null;
 			}
 
