@@ -6,7 +6,7 @@ public class SlowEnemy_Movement : MonoBehaviour {
 
 	public Renderer rend;
 	public Color normalColor = new Color (0.509f,0.035f,1f);
-	public Color hitColor = new Color (0.6f, 0.211f, 1f);
+	public Color hitColor = new Color (0.713f, 0.435f, 1f);
 
 	private int m_Health = 5;
 	private float m_Speed = 0.8f;
