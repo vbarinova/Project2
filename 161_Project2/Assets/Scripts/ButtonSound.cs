@@ -5,7 +5,7 @@ using UnityEngine;
 public class ButtonSound : MonoBehaviour {
 
 	public static ButtonSound instance = null;
-	public static ButtonSound buttonSound;
+	//public static ButtonSound buttonSound;
 	public AudioClip buttonClick;
 
 	private AudioSource source;
@@ -22,12 +22,8 @@ public class ButtonSound : MonoBehaviour {
 		}
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
-	public void play() {
+	public void Play() {
 		source.PlayOneShot (buttonClick, 1f);
 	}
 }

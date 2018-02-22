@@ -19,7 +19,6 @@ public class LoadingScreen : MonoBehaviour
         if (Input.anyKeyDown)
         {
             GameStart = true;
-			ButtonSound.buttonSound.play ();
             Observer.GetComponent<LevelManager>().MoveScene(1);
         }
     }

@@ -8,7 +8,7 @@ public class LevelManager : MonoBehaviour {
 	public void MoveScene(int level)
     {
         Time.timeScale = 1f;
-		ButtonSound.buttonSound.play ();
+		ButtonSound.instance.Play ();
         SceneManager.LoadScene(level);
     }
 
@@ -25,7 +25,7 @@ public class LevelManager : MonoBehaviour {
     public void Restart()
     {
         Time.timeScale = 1f;
-		ButtonSound.buttonSound.play ();
+		ButtonSound.instance.Play();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
