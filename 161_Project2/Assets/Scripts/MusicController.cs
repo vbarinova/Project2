@@ -8,7 +8,7 @@ public class MusicController : MonoBehaviour
     public static MusicController instance = null;
     public AudioSource music;
 
-    void Awake()
+    void Start()
     {
         if (instance != null)
             { Destroy(gameObject); return; }
@@ -22,7 +22,7 @@ public class MusicController : MonoBehaviour
     void Update()
     {
         if (LoadingScreen.GameStart)
-            music.Stop();
+            { Destroy(gameObject); return; }
         else
             if (!music.isPlaying) music.Play();
     }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 930639930}
-  m_IndirectSpecularColor: {r: 0.27441636, g: 0.2897251, b: 0.5051305, a: 1}
+  m_IndirectSpecularColor: {r: 0.27441642, g: 0.2897254, b: 0.5051321, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1904,6 +1904,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 2019994709}
+        m_MethodName: ExitLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 2019994709}
         m_MethodName: MoveScene
         m_Mode: 3
@@ -4328,7 +4339,6 @@ GameObject:
   - component: {fileID: 2019994709}
   - component: {fileID: 2019994711}
   - component: {fileID: 2019994712}
-  - component: {fileID: 2019994713}
   m_Layer: 0
   m_Name: Observer
   m_TagString: Untagged
@@ -4387,22 +4397,6 @@ MonoBehaviour:
   gameOverUI: {fileID: 1456309497}
   gameWinUI: {fileID: 1330682513}
   scoretxt: {fileID: 890853818}
---- !u!114 &2019994713
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2019994708}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d3f702d040112e4f853e280ffe4298c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  originalSize: 1
-  maxSize: 1.2
-  growFactor: 0.08
-  waitTime: 0.1
-  later: 0
 --- !u!1 &2138936260
 GameObject:
   m_ObjectHideFlags: 0

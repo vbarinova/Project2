@@ -34,6 +34,7 @@ public class EndGame : MonoBehaviour
             if (Input.anyKeyDown)
             {
                 Time.timeScale = 1f;
+                LoadingScreen.GameStart = false;
                 GoBackToStart();
             }
         }
@@ -45,7 +46,9 @@ public class EndGame : MonoBehaviour
             if (Input.anyKeyDown)
             {
                 Time.timeScale = 1f;
+                LoadingScreen.GameStart = false;
                 GoBackToStart();
+                
             }
         }
     }
