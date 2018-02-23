@@ -34,4 +34,9 @@ public class LevelManager : MonoBehaviour {
             PlayerHealth.GameOver = false;
             SceneManager.LoadScene(0);
     }
+
+    public void ExitLevel()
+    {
+        LoadingScreen.GameStart = false; 
+    }
 }

@@ -34,10 +34,11 @@ public class EndGame : MonoBehaviour
             if (Input.anyKeyDown)
             {
                 Time.timeScale = 1f;
+                LoadingScreen.GameStart = false;
                 GoBackToStart();
             }
         }
-        else if (WaveManager.waveNumber >= 12)  // 12
+        else if (WaveManager.waveNumber >= 1)  // 12
         {
             Time.timeScale = 0f;
             gameWinUI.SetActive(true);
@@ -45,7 +46,9 @@ public class EndGame : MonoBehaviour
             if (Input.anyKeyDown)
             {
                 Time.timeScale = 1f;
+                LoadingScreen.GameStart = false;
                 GoBackToStart();
+                
             }
         }
     }
