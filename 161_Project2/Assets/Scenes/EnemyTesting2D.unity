@@ -1408,6 +1408,7 @@ GameObject:
   - component: {fileID: 654555196}
   - component: {fileID: 654555198}
   - component: {fileID: 654555199}
+  - component: {fileID: 654555200}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1530,6 +1531,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   profile: {fileID: 11400000, guid: 41d25e24b181f234f8411faafe26af4c, type: 2}
+--- !u!165 &654555200
+AudioHighPassFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 654555191}
+  m_Enabled: 0
+  m_CutoffFrequency: 1000
+  m_HighpassResonanceQ: 1
 --- !u!1 &658207249
 GameObject:
   m_ObjectHideFlags: 0
@@ -4382,7 +4392,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_PauseMenu: {fileID: 1622384576}
-  m_AudioControl: {fileID: 1531168932}
+  m_AudioControl: {fileID: 654555191}
 --- !u!114 &2019994712
 MonoBehaviour:
   m_ObjectHideFlags: 0

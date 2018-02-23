@@ -8,7 +8,7 @@ public class PauseMenu : MonoBehaviour {
 
 
     public GameObject m_PauseMenu;
-    public AudioSource m_AudioControl;
+    public GameObject m_AudioControl;
 
     public static bool isPaused;
 	// Use this for initialization
