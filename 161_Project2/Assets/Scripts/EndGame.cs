@@ -38,7 +38,7 @@ public class EndGame : MonoBehaviour
                 GoBackToStart();
             }
         }
-        else if (WaveManager.waveNumber >= 1)  // 12
+        else if (WaveManager.waveNumber >= 12)  // 12
         {
             Time.timeScale = 0f;
             gameWinUI.SetActive(true);
